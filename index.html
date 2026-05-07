@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iqbal Mobile Repairing Center | Official</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --bg-dark: #020617;
+            --glass: rgba(15, 23, 42, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Badge Style */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 8%; background: rgba(2, 6, 23, 0.95);
+            backdrop-filter: blur(20px); position: fixed; width: 84%; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .badge-logo {
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(0, 210, 255, 0.08); padding: 8px 22px;
+            border-radius: 50px; border: 2px solid var(--primary);
+            text-decoration: none; transition: 0.3s;
+        }
+        .badge-logo:hover { box-shadow: 0 0 20px rgba(0, 210, 255, 0.3); }
+        .badge-icon {
+            background: var(--primary); color: #000; width: 32px; height: 32px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 900; box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+        .badge-text b { color: #fff; font-size: 19px; letter-spacing: 1px; }
+        .badge-text span { color: var(--primary); font-weight: 300; font-size: 17px; }
+
+        .nav-links a { color: var(--text-dim); text-decoration: none; margin-left: 25px; font-size: 12px; font-weight: 700; transition: 0.3s; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .container { width: 90%; max-width: 1100px; margin: auto; padding: 100px 0; }
+        .section-title { text-align: center; font-size: 40px; margin-bottom: 50px; font-weight: 800; }
+        .section-title span { color: var(--primary); }
+
+        /* --- ZOOM SLIDER START --- */
+        .slider-container {
+            width: 100%; height: 550px; position: relative;
+            overflow: hidden; border-radius: 40px; margin-bottom: 60px;
+            border: 1px solid var(--glass-border); box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        }
+        .slides {
+            display: flex; width: 400%; height: 100%;
+            animation: slideMove 20s infinite ease-in-out;
+        }
+        .slide { width: 25%; height: 100%; position: relative; overflow: hidden; }
+        
+        /* Zoom Effect for Pictures */
+        .slide img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            animation: imageZoom 5s infinite alternate ease-in-out;
+        }
+
+        .slide-overlay {
+            position: absolute; inset: 0; background: linear-gradient(transparent, rgba(2, 6, 23, 0.95));
+            display: flex; align-items: flex-end; padding: 60px; z-index: 2;
+        }
+
+        @keyframes slideMove {
+            0%, 20% { transform: translateX(0); }
+            25%, 45% { transform: translateX(-25%); }
+            50%, 70% { transform: translateX(-50%); }
+            75%, 95% { transform: translateX(-75%); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes imageZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+        /* --- ZOOM SLIDER END --- */
+
+        /* CEO Section */
+        .owner-card {
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: 35px; padding: 40px; display: flex; align-items: center; gap: 40px;
+            margin-bottom: 80px; backdrop-filter: blur(15px);
+        }
+        .owner-img { width: 160px; height: 210px; border-radius: 20px; border: 2px solid var(--primary); object-fit: cover; object-position: top; }
+
+        /* Team Section */
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .member-card {
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: 30px; padding: 25px; text-align: center; transition: 0.4s;
+        }
+        .member-card:hover { border-color: var(--primary); transform: translateY(-10px); background: rgba(255,255,255,0.02); }
+        .member-card.featured { border: 2.5px solid var(--primary); background: rgba(0, 210, 255, 0.05); }
+        
+        .member-img-box { width: 100%; height: 230px; border-radius: 20px; overflow: hidden; margin-bottom: 20px; }
+        .member-img-box img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+        
+        .role-badge { color: var(--primary); font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; display: block; }
+        
+        .wa-link {
+            background: #25d366; color: white; text-decoration: none;
+            padding: 14px; border-radius: 15px; font-size: 12px; font-weight: 800;
+            display: block; margin-top: 15px; transition: 0.3s;
+        }
+        .wa-link:hover { box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); transform: scale(1.02); }
+
+        /* Contact Details */
+        .contact-box {
+            display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px;
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: 40px; padding: 50px; align-items: center;
+        }
+        .shop-photo { width: 100%; height: 350px; border-radius: 30px; object-fit: cover; border: 1px solid var(--glass-border); }
+
+        footer { background: #010409; padding: 60px 8%; text-align: center; border-top: 1px solid var(--glass-border); }
+
+        @media (max-width: 900px) {
+            .team-grid, .contact-box { grid-template-columns: 1fr; }
+            .owner-card { flex-direction: column; text-align: center; }
+            .slider-container { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="badge-logo">
+        <div class="badge-icon">I</div>
+        <div class="badge-text"><b>IQBAL</b> <span>MOBILE</span></div>
+    </a>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#team">Our Team</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+</nav>
+
+<div class="container">
+    
+    <!-- Hero Zoom Slider Section -->
+    <section id="home">
+        <div class="slider-container">
+            <div class="slides">
+                <div class="slide">
+                    <img src="shop1.png" alt="Lab Space">
+                    <div class="slide-overlay"><div><h2 style="font-size: 45px; margin:0; letter-spacing:-1px;">Precision <span style="color:var(--primary)">Hardware</span> Lab</h2><p style="color:var(--text-dim); font-size: 18px;">Specialized in Level 3 Micro-Soldering</p></div></div>
+                </div>
+                <div class="slide">
+                    <img src="shop2.png" alt="Software Station">
+                    <div class="slide-overlay"><div><h2 style="font-size: 45px; margin:0; letter-spacing:-1px;">Advanced <span style="color:var(--primary)">Software</span> Station</h2><p style="color:var(--text-dim); font-size: 18px;">Flashing, Unlocking & Dead Boot Recovery</p></div></div>
+                </div>
+                <div class="slide">
+                    <img src="shop3.png" alt="Spare Parts">
+                    <div class="slide-overlay"><div><h2 style="font-size: 45px; margin:0; letter-spacing:-1px;">Original <span style="color:var(--primary)">Spare</span> Parts</h2><p style="color:var(--text-dim); font-size: 18px;">100% Genuine LCD Panels & Batteries</p></div></div>
+                </div>
+                <div class="slide">
+                    <img src="shop4.png" alt="Center View">
+                    <div class="slide-overlay"><div><h2 style="font-size: 45px; margin:0; letter-spacing:-1px;">Trusted <span style="color:var(--primary)">Solutions</span></h2><p style="color:var(--text-dim); font-size: 18px;">Expertise you can count on since day one</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO/Owner Profile -->
+    <div class="owner-card">
+        <img src="Muhammad Iqbal.jpeg" class="owner-img" alt="Muhammad Iqbal Ansari">
+        <div>
+            <span class="role-badge" style="background: rgba(0, 210, 255, 0.1); padding: 5px 15px; border-radius: 50px; width: fit-content;">Founder & Managing Director</span>
+            <h2 style="font-size: 36px; margin: 15px 0;">Muhammad Iqbal Ansari</h2>
+            <p style="color: var(--text-dim); line-height: 1.8; font-size: 16px;">Professional mobile hardware technician and owner of <b>Iqbal Mobile Repairing Center</b>. Leading a team of expert technicians to provide top-notch hardware and software solutions in Gujranwala.</p>
+            <div style="color: var(--primary); font-weight: 800; font-size: 20px; letter-spacing: 1px;">PHONE: 0317-5825000</div>
+        </div>
+    </div>
+
+    <!-- Experts Team Section -->
+    <section id="team">
+        <h2 class="section-title">Our Technical <span>Superstars</span></h2>
+        <div class="team-grid">
+            <div class="member-card">
+                <div class="member-img-box"><img src="Ahmed Raza.Jpeg" alt="Ahmed Raza"></div>
+                <span class="role-badge">Software specialist</span>
+                <h3 style="margin: 0 0 10px 0;">Ahmed Raza</h3>
+                <a href="https://wa.me/923314610866" class="wa-link">WHATSAPP CHAT</a>
+            </div>
+
+            <div class="member-card featured">
+                <div class="member-img-box" style="height: 270px;"><img src="Muhammad Muz.jpeg" alt="Muhammad Muzamal"></div>
+                <span class="role-badge">Sr. Hardware engineer</span>
+                <h2 style="margin: 0 0 10px 0; font-size: 24px;">Muhammad Muzamal</h2>
+                <a href="https://wa.me/923137483346" class="wa-link" style="background: var(--primary); color: #000;">WHATSAPP CHAT</a>
+            </div>
+
+            <div class="member-card">
+                <div class="member-img-box"><img src="Numan Ahmed.jpeg" alt="Numan Ahmed"></div>
+                <span class="role-badge">Hardware tech</span>
+                <h3 style="margin: 0 0 10px 0;">Numan Ahmed</h3>
+                <a href="https://wa.me/923314610866" class="wa-link">WHATSAPP CHAT</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Contact Section -->
+    <section id="contact" style="margin-top: 100px;">
+        <h2 class="section-title">Visit Our <span>Center</span></h2>
+        <div class="contact-box">
+            <div class="contact-map-img">
+                <img src="shop.jpeg" class="shop-photo" alt="Shop Building Landmark">
+            </div>
+            <div>
+                <h3 style="font-size: 30px; margin-top: 0; color: var(--primary);">Get in Touch</h3>
+                <div style="line-height: 2; color: var(--text-dim); font-size: 18px;">
+                    <p>📍 <b>Address:</b> Gharjkahi Gate Shop B2s, Gujranwala.</p>
+                    <p>📞 <b>Business:</b> 0317-5825000.</p>
+                    <p>⏰ <b>Hours:</b> 11:00 AM - 10:00 PM (Mon-Sat).</p>
+                </div>
+                <a href="https://wa.me/923175825000" class="wa-link" style="display:inline-block; padding: 18px 45px; background: transparent; border: 2px solid #25d366; color: #25d366; margin-top: 25px;">BOOK A REPAIR</a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <div class="badge-logo" style="margin: 0 auto 20px; width: fit-content;">
+        <div class="badge-icon">I</div>
+        <div class="badge-text"><b>IQBAL</b> <span>MOBILE</span></div>
+    </div>
+    <p style="color: var(--text-dim); font-size: 15px;">Pakistan's Leading Mobile Engineering & Repairing Hub</p>
+    <div style="margin-top: 40px; border-top: 1px solid var(--glass-border); padding-top: 30px; font-size: 12px; opacity: 0.5;">
+        © 2026 Iqbal Mobile Repairing Center. Professionalism Since Day One.
+    </div>
+</footer>
+
+</body>
+</html>
